@@ -1,7 +1,9 @@
 ---
+# Basic playbook that installed powerline and copies the configuration file
+
 - name: Install Powerline.
-  hosts: servers
-  gather_facts: false
+  hosts: all                        # Change this to your inventory groups (or leave all)
+  gather_facts: false               # Faster execution since we don't need to gather facts
 
   tasks:
     - name: Ensure powerline packages are installed.
@@ -9,6 +11,7 @@
         name: powerline
       become: true
     
+    # Copy the configuration file to the home directory of the ansible user.
     - name: Ensure ~/.bash_aliases is copied.
       ansible.builtin.copy:
         src: bash_aliases
