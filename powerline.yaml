@@ -9,6 +9,7 @@
     - name: Ensure powerline packages are installed.
       ansible.builtin.apt:          # Fedora: use ansible.builtin.dnf (or both can use ansible.builtin.package)
         name: powerline
+        state: present
       become: true
     
     # Copy the configuration file to the home directory of the ansible user.
