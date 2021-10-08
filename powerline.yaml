@@ -1,0 +1,10 @@
+---
+- name: Install Powerline.
+  hosts: servers
+  gather_facts: false
+
+  tasks:
+    - name: Ensure powerline packages are installed.
+      ansible.builtin.apt:
+        name: powerline
+      become: true
