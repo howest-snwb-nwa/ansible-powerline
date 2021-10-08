@@ -20,3 +20,8 @@
         owner: alvin
         group: alvin
         mode: '0664'
+
+    # Powerline needs extra symbols in the font used in your terminal. Show the user a message about that.
+    - name: Show font tip.
+      ansible.builtin.debug:
+        msg: "Powerline uses symbols that are not available in every font. Do not forget to install and use a font with Powerline Symbols included. (Example: https://www.nerdfonts.com/)"
