@@ -5,6 +5,14 @@
 
   tasks:
     - name: Ensure powerline packages are installed.
-      ansible.builtin.apt:
+      ansible.builtin.apt:          # Fedora: use ansible.builtin.dnf (or both can use ansible.builtin.package)
         name: powerline
       become: true
+    
+    - name: Ensure ~/.bash_aliases is copied.
+      ansible.builtin.copy:
+        src: bash_aliases
+        dest: ~/.bash_aliases       # Fedora: use ~/.bashrc.d/bash_aliases
+        owner: alvin
+        group: alvin
+        mode: '0664'
